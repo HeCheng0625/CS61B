@@ -167,10 +167,7 @@ public class IntList {
                 return false;
             }
         }
-        if (p != null || L != null) {
-            return false;
-        }
-        return true;
+        return p == null && L == null;
     }
 
     /**
