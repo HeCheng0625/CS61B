@@ -26,8 +26,17 @@ public class ArrayDeque<T> {
         for (int i = 0; i < size; i++) newArray[i] = array[(i + front) % length];
         array = newArray;
         front = 0;
-        last = size - 1;
+        last = Math.max(size - 1, 0);
         length *= 2;
+    }
+
+    private void resizeDown() {
+        T[] newArray = (T []) new Object[length / 2];
+        for (int i = 0; i < size; i++) newArray[i] = array[(i + front) % length];
+        array = newArray;
+        front = 0;
+        last = Math.max(size - 1, 0);
+        length /= 2;
     }
 
     public void addFirst(T item) {
@@ -46,6 +55,7 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         if (size == 0) return null;
+        if (length >= 16 && length / size >= 4) resizeDown();
         T result = array[front];
         if (size != 1) front = (front + 1 + length) % length;
         size -= 1;
@@ -54,6 +64,7 @@ public class ArrayDeque<T> {
 
     public T removeLast() {
         if (size == 0) return null;
+        if (length >= 16 && length / size >= 4) resizeDown();
         T result = array[last];
         if (size != 1) last = (last - 1 + length) % length;
         size -= 1;
