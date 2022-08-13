@@ -12,7 +12,7 @@ public class Palindrome {
         if (word == null) {
             return true;
         }
-        for (int i = 0; i < (int) word.length()/2; i++) {
+        for (int i = 0; i < (int) word.length() / 2; i++) {
             if (word.charAt(i) != word.charAt(word.length() - 1 - i)) {
                 return false;
             }
@@ -24,8 +24,8 @@ public class Palindrome {
         if (word == null) {
             return true;
         }
-        for (int i = 0; i < (int) word.length()/2; i++) {
-            if (! cc.equalChars(word.charAt(i), word.charAt(word.length() - 1 - i))) {
+        for (int i = 0; i < (int) word.length() / 2; i++) {
+            if (!cc.equalChars(word.charAt(i), word.charAt(word.length() - 1 - i))) {
                 return false;
             }
         }
