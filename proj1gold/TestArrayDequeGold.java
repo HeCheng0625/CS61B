@@ -44,7 +44,7 @@ public class TestArrayDequeGold {
                 else {
                     message += "removeLast()\n";
                     expected = solutionDeque.removeLast();
-                    actual = solutionDeque.removeLast();
+                    actual = studentDeque.removeLast();
                 }
                 assertEquals(message, expected, actual);
             }
