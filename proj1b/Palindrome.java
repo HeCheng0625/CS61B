@@ -19,4 +19,16 @@ public class Palindrome {
         }
         return true;
     }
+
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word == null) {
+            return true;
+        }
+        for (int i = 0; i < (int) word.length()/2; i++) {
+            if (! cc.equalChars(word.charAt(i), word.charAt(word.length() - 1 - i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

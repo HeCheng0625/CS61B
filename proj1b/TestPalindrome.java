@@ -28,4 +28,13 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("racecar"));
         assertTrue(palindrome.isPalindrome("aDEgFgEDa"));
     }
+
+    @Test
+    public void testIsOfferByOnePalindrome() {
+        CharacterComparator offerByOne = new OffByOne();
+        assertTrue(palindrome.isPalindrome("", offerByOne));
+        assertTrue(palindrome.isPalindrome("a", offerByOne));
+        assertTrue(palindrome.isPalindrome("flake", offerByOne));
+        assertFalse(palindrome.isPalindrome("aba", offerByOne));
+    }
 }
